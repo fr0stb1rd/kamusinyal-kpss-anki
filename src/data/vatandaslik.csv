@@ -1,11 +1,11 @@
 guid,Question,Answer,tags
-kpss-v1,Anayasanın değiştirilemez maddelerinden biri nedir?,Başkentin Ankara olması,KPSS::Vatandaslik
-kpss-v2,Türkiye Cumhuriyeti'nin yönetim şekli nedir?,Cumhuriyet,KPSS::Vatandaslik
-kpss-v3,Seçme yaşı kaçtır?,18,KPSS::Vatandaslik
-kpss-v4,Milletvekili sayısı kaçtır?,600,KPSS::Vatandaslik
-kpss-v5,Anayasa Mahkemesi kaç üyeden oluşur?,15,KPSS::Vatandaslik
-kpss-v6,Cumhurbaşkanı kaç yıllığına seçilir?,5,KPSS::Vatandaslik
-kpss-v7,Yüksek Seçim Kurulu (YSK) başkanı kim tarafından seçilir?,Kendi üyeleri arasından,KPSS::Vatandaslik
-kpss-v8,Yerel seçimler kaç yılda bir yapılır?,5,KPSS::Vatandaslik
-kpss-v9,Türk bayrağının şekli ve rengi hangi kanunla belirlenir?,Bayrak Kanunu,KPSS::Vatandaslik
-kpss-v10,Türk vatandaşlığı nasıl kazanılır?,Doğumla veya sonradan,KPSS::Vatandaslik
+v-1,Anayasanın değiştirilemez maddelerinden biri nedir?,Başkentin Ankara olması,KPSS::Vatandaslik
+v-2,Türkiye Cumhuriyeti'nin yönetim şekli nedir?,Cumhuriyet,KPSS::Vatandaslik
+v-3,Seçme yaşı kaçtır?,18,KPSS::Vatandaslik
+v-4,Milletvekili sayısı kaçtır?,600,KPSS::Vatandaslik
+v-5,Anayasa Mahkemesi kaç üyeden oluşur?,15,KPSS::Vatandaslik
+v-6,Cumhurbaşkanı kaç yıllığına seçilir?,5,KPSS::Vatandaslik
+v-7,Yüksek Seçim Kurulu (YSK) başkanı kim tarafından seçilir?,Kendi üyeleri arasından,KPSS::Vatandaslik
+v-8,Yerel seçimler kaç yılda bir yapılır?,5,KPSS::Vatandaslik
+v-9,Türk bayrağının şekli ve rengi hangi kanunla belirlenir?,Bayrak Kanunu,KPSS::Vatandaslik
+v-10,Türk vatandaşlığı nasıl kazanılır?,Doğumla veya sonradan,KPSS::Vatandaslik
