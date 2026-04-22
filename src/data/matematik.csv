@@ -1,0 +1,11 @@
+guid,Question,Answer,tags
+kpss-m1,12 x 12 kaçtır?,144,KPSS::Matematik
+kpss-m2,En küçük asal sayı kaçtır?,2,KPSS::Matematik
+kpss-m3,Bir üçgenin iç açıları toplamı kaçtır?,180,KPSS::Matematik
+kpss-m4,Pi sayısı yaklaşık kaçtır?,3.14,KPSS::Matematik
+kpss-m5,100'ün karekökü kaçtır?,10,KPSS::Matematik
+kpss-m6,Bir karenin alanı nasıl hesaplanır?,Bir kenarının karesi,KPSS::Matematik
+kpss-m7,2 üzeri 5 kaçtır?,32,KPSS::Matematik
+kpss-m8,Hipotenüs hangi üçgende bulunur?,Dik üçgen,KPSS::Matematik
+kpss-m9,0 faktöriyel kaçtır?,1,KPSS::Matematik
+kpss-m10,Bir çemberin çevresi formülü nedir?,2 * pi * r,KPSS::Matematik

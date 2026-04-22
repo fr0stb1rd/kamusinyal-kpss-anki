@@ -1,0 +1,64 @@
+- build_parts:
+  - note_model_from_yaml_part: { part_id: kpss_model, file: src/note_models/kpss.yaml }
+
+  - headers_from_yaml_part:
+      - part_id: header_master
+        file: src/headers/kpss_default.yaml
+        override: { name: "KamuSinyal 2026 KPSS Tüm Dersler", crowdanki_uuid: "kpss-master-v8", deck_description_html_file: "src/headers/kpss_desc.html" }
+      - part_id: header_tarih
+        file: src/headers/kpss_default.yaml
+        override: { name: "KamuSinyal 2026 KPSS Tarih", crowdanki_uuid: "kpss-tarih-v8", deck_description_html_file: "src/headers/kpss_desc.html" }
+      - part_id: header_turkce
+        file: src/headers/kpss_default.yaml
+        override: { name: "KamuSinyal 2026 KPSS Türkçe", crowdanki_uuid: "kpss-turkce-v8", deck_description_html_file: "src/headers/kpss_desc.html" }
+      - part_id: header_matematik
+        file: src/headers/kpss_default.yaml
+        override: { name: "KamuSinyal 2026 KPSS Matematik", crowdanki_uuid: "kpss-matematik-v8", deck_description_html_file: "src/headers/kpss_desc.html" }
+      - part_id: header_vatandaslik
+        file: src/headers/kpss_default.yaml
+        override: { name: "KamuSinyal 2026 KPSS Vatandaşlık", crowdanki_uuid: "kpss-vatandaslik-v8", deck_description_html_file: "src/headers/kpss_desc.html" }
+      - part_id: header_cografya
+        file: src/headers/kpss_default.yaml
+        override: { name: "KamuSinyal 2026 KPSS Coğrafya", crowdanki_uuid: "kpss-cografya-v8", deck_description_html_file: "src/headers/kpss_desc.html" }
+
+  - notes_from_csvs:
+      part_id: tarih_notes
+      note_model_mappings: [{ note_models: [kpss_model], columns_to_fields: { guid: guid, tags: tags, Question: Question, Answer: Answer } }]
+      file_mappings: [{ file: src/data/tarih.csv, note_model: kpss_model }]
+
+  - notes_from_csvs:
+      part_id: turkce_notes
+      note_model_mappings: [{ note_models: [kpss_model], columns_to_fields: { guid: guid, tags: tags, Question: Question, Answer: Answer } }]
+      file_mappings: [{ file: src/data/turkce.csv, note_model: kpss_model }]
+
+  - notes_from_csvs:
+      part_id: matematik_notes
+      note_model_mappings: [{ note_models: [kpss_model], columns_to_fields: { guid: guid, tags: tags, Question: Question, Answer: Answer } }]
+      file_mappings: [{ file: src/data/matematik.csv, note_model: kpss_model }]
+
+  - notes_from_csvs:
+      part_id: vatandaslik_notes
+      note_model_mappings: [{ note_models: [kpss_model], columns_to_fields: { guid: guid, tags: tags, Question: Question, Answer: Answer } }]
+      file_mappings: [{ file: src/data/vatandaslik.csv, note_model: kpss_model }]
+
+  - notes_from_csvs:
+      part_id: cografya_notes
+      note_model_mappings: [{ note_models: [kpss_model], columns_to_fields: { guid: guid, tags: tags, Question: Question, Answer: Answer } }]
+      file_mappings: [{ file: src/data/cografya.csv, note_model: kpss_model }]
+
+  - notes_from_csvs:
+      part_id: master_notes
+      note_model_mappings: [{ note_models: [kpss_model], columns_to_fields: { guid: guid, tags: tags, Question: Question, Answer: Answer } }]
+      file_mappings:
+        - { file: src/data/tarih.csv, note_model: kpss_model }
+        - { file: src/data/turkce.csv, note_model: kpss_model }
+        - { file: src/data/matematik.csv, note_model: kpss_model }
+        - { file: src/data/vatandaslik.csv, note_model: kpss_model }
+        - { file: src/data/cografya.csv, note_model: kpss_model }
+
+- generate_crowd_anki: { folder: "build/KamuSinyal 2026 KPSS Tüm Dersler", headers: header_master, note_models: { parts: [{ part_id: kpss_model }] }, notes: { part_id: master_notes } }
+- generate_crowd_anki: { folder: "build/KamuSinyal 2026 KPSS Tarih", headers: header_tarih, note_models: { parts: [{ part_id: kpss_model }] }, notes: { part_id: tarih_notes } }
+- generate_crowd_anki: { folder: "build/KamuSinyal 2026 KPSS Türkçe", headers: header_turkce, note_models: { parts: [{ part_id: kpss_model }] }, notes: { part_id: turkce_notes } }
+- generate_crowd_anki: { folder: "build/KamuSinyal 2026 KPSS Matematik", headers: header_matematik, note_models: { parts: [{ part_id: kpss_model }] }, notes: { part_id: matematik_notes } }
+- generate_crowd_anki: { folder: "build/KamuSinyal 2026 KPSS Vatandaşlık", headers: header_vatandaslik, note_models: { parts: [{ part_id: kpss_model }] }, notes: { part_id: vatandaslik_notes } }
+- generate_crowd_anki: { folder: "build/KamuSinyal 2026 KPSS Coğrafya", headers: header_cografya, note_models: { parts: [{ part_id: kpss_model }] }, notes: { part_id: cografya_notes } }

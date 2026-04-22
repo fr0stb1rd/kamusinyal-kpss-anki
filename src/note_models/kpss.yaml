@@ -1,0 +1,9 @@
+name: "KPSS Soru-Cevap"
+id: "kpss-note-model-minimal-v1"
+css_file: "src/note_models/kpss.css"
+fields:
+  - name: Question
+  - name: Answer
+templates:
+  - name: "Soru-Cevap"
+    html_file: "src/note_models/templates/kpss_template.html"
