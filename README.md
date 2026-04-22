@@ -4,12 +4,12 @@ Bu depo, **KamuSinyal** ekosisteminin bir parçası olarak geliştirilen, KPSS (
 
 ## Özellikler
 - **5 Ana Ders**: Tarih, Türkçe, Matematik, Vatandaşlık, Coğrafya.
-- **50 Temel Soru**: Başlangıç seviyesi için her dersten 10 adet özenle seçilmiş soru.
-- **Premium Tasarım**: KamuSinyal görsel kimliğine uygun, modern renk paleti ve ders bazlı kodlama.
-- **Brain Brew Altyapısı**: Kartlar tamamen metin tabanlı (CSV) dosyalar üzerinden yönetilir ve teknik kullanıcılar için kolayca genişletilebilir.
+- **Yalın Tasarım**: Anki'nin yerel gece ve gündüz modlarıyla tam uyumlu, göz yormayan minimalist tasarım.
+- **Kolay Yönetim**: Kartlar tamamen CSV dosyaları üzerinden yönetilir; teknik bilgi gerektirmeden soru eklenebilir.
+- **Brain Brew Altyapısı**: Otomatik inşa sistemi sayesinde tek komutla tüm branş desteleri üretilir.
 
 ## Deste Yapısı
-Desteler `build/` klasörü altında, KamuSinyal markasıyla uyumlu paketler halinde sunulmaktadır:
+Desteler `build/` klasörü altında, branş bazlı ve toplu paketler halinde sunulmaktadır:
 - `build/KamuSinyal 2026 KPSS Tüm Dersler` (Kapsamlı Master Deste)
 - `build/KamuSinyal 2026 KPSS Tarih`
 - `build/KamuSinyal 2026 KPSS Türkçe`
@@ -23,18 +23,17 @@ Desteler `build/` klasörü altında, KamuSinyal markasıyla uyumlu paketler hal
 3. Anki menüsünden `File -> CrowdAnki: Import from disk` yolunu izleyin.
 4. Bu depodaki `build/` klasörü içinden aktarmak istediğiniz dersin klasörünü seçin.
 
-## Geliştirme Süreci
-Bu repo, KamuSinyal içeriklerinin en kolay şekilde yönetilmesi için tasarlanmıştır. Veri eklemek için:
+## Geliştirme Süreci (Yeni Soru Ekleme)
+Bu depo, KamuSinyal içeriklerinin en kolay şekilde yönetilmesi için tasarlanmıştır. Yeni bir soru eklemek için sadece şu adımları izleyin:
 
-1. `src/raw_data/` altındaki ilgili dersin `.csv` dosyasını düzenleyin. Sadece `guid`, `Question` ve `Answer` alanlarını doldurmanız yeterlidir.
-2. Aşağıdaki komutu çalıştırarak verileri genişletin (bu komut ders isimlerini ve etiketleri otomatik ekler):
-```bash
-python3 scripts/expand_data.py
-```
-3. Desteleri inşa edin:
+1. `src/data/` altındaki ilgili dersin `.csv` dosyasını (örneğin `tarih.csv`) açın.
+2. Yeni bir satır ekleyerek `guid`, `Question` ve `Answer` alanlarını doldurun (tags alanını ders etiketiyle aynı bırakın).
+3. Terminalde şu komutu çalıştırarak desteleri yeniden inşa edin:
 ```bash
 ./venv/bin/brain-brew run recipes/kpss.yaml
 ```
 
+İnşa edilen güncel desteleri `build/` klasöründe bulabilirsiniz.
+
 ---
-**KamuSinyal** hakkında daha fazla bilgi ve diğer projeler için ana proje sayfasını ziyaret edebilirsiniz.
+**KamuSinyal** - Zamanın Sinyalini Sen Belirle!
