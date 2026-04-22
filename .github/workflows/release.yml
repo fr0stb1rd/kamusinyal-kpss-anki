@@ -1,0 +1,41 @@
+name: Build and Release Anki Decks
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install brain-brew
+
+      - name: Build Decks
+        run: |
+          brain-brew run recipes/kpss.yaml
+
+      - name: Zip Decks
+        run: |
+          cd build
+          for d in */; do
+            zip -r "${d%/}.zip" "$d"
+          done
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
