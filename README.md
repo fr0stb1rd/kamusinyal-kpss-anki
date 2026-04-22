@@ -35,5 +35,3 @@ Bu depo, KamuSinyal içeriklerinin en kolay şekilde yönetilmesi için tasarlan
 
 İnşa edilen güncel desteleri `build/` klasöründe bulabilirsiniz.
 
----
-**KamuSinyal** - Zamanın Sinyalini Sen Belirle!
