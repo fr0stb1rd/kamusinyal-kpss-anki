@@ -10,12 +10,12 @@ Bu depo, **KamuSinyal** ekosisteminin bir parçası olarak geliştirilen, KPSS (
 
 ## Deste Yapısı
 Desteler `build/` klasörü altında, branş bazlı ve toplu paketler halinde sunulmaktadır:
-- `build/KamuSinyal 2026 KPSS Tüm Dersler` (Kapsamlı Master Deste)
-- `build/KamuSinyal 2026 KPSS Tarih`
-- `build/KamuSinyal 2026 KPSS Türkçe`
-- `build/KamuSinyal 2026 KPSS Matematik`
-- `build/KamuSinyal 2026 KPSS Vatandaşlık`
-- `build/KamuSinyal 2026 KPSS Coğrafya`
+- `build/KamuSinyal 2026 KPSS Tüm Dersler` (Tüm Dersler Destesi)
+- `build/KamuSinyal 2026 KPSS Tarih` (Tarih Destesi)
+- `build/KamuSinyal 2026 KPSS Türkçe` (Türkçe Destesi)
+- `build/KamuSinyal 2026 KPSS Matematik` (Matematik Destesi)
+- `build/KamuSinyal 2026 KPSS Vatandaşlık` (Vatandaşlık Destesi)
+- `build/KamuSinyal 2026 KPSS Coğrafya` (Coğrafya Destesi)
 
 ## Kurulum ve Kullanım
 1. Bilgisayarınızda Anki yüklü olduğundan emin olun.
