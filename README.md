@@ -1,140 +1,211 @@
-# KamuSinyal 2026 KPSS Anki Desteleri
+<h1 align="center">KamuSinyal KPSS Anki</h1>
 
-Bu depo, **KamuSinyal** ekosisteminin bir parçası olarak geliştirilen, KPSS (Kamu Personeli Seçme Sınavı) hazırlık sürecine yönelik modern ve modüler Anki kartlarını içerir. KamuSinyal projesinin eğitim materyalleri bacağını desteklemek amacıyla oluşturulmuş bir alt kaynaktır.
+<p align="center">
+  <strong>Akıllı Kart Destesiyle KPSS'ye Hazırlan</strong><br>
+  Güncel, modüler ve otomatik olarak derlenen KPSS flash kartları — doğrudan Anki'ye aktarılmaya hazır.
+</p>
 
-## Özellikler
-- **5 Ana Ders**: Tarih, Türkçe, Matematik, Vatandaşlık, Coğrafya.
-- **Yalın Tasarım**: Anki'nin yerel gece ve gündüz modlarıyla tam uyumlu, göz yormayan minimalist tasarım.
-- **Kolay Yönetim**: Kartlar tamamen `.txt` dosyaları üzerinden yönetilir; teknik bilgi gerektirmeden soru eklenebilir.
+<p align="center">
+  <a href="#-özellikler">Özellikler</a> •
+  <a href="#-kurulum--kullanım">Kurulum</a> •
+  <a href="#-proje-mimarisi">Mimari</a> •
+  <a href="#-build-pipeline">Pipeline</a> •
+  <a href="#-yeni-soru-ekleme">Soru Ekleme</a> •
+  <a href="#-kalite-kontrol-qa">Kalite Kontrol</a> •
+  <a href="#-yerel-derleme">Yerel Derleme</a> •
+  <a href="#-lisans">Lisans</a>
+</p>
 
-## Nasıl Kullanılır?
+---
 
-1. **Desteleri İndirin:** [KamuSinyal KPSS Anki En Son Sürüm (Releases)](https://github.com/fr0stb1rd/kamusinyal-kpss-anki/releases/latest) sayfasına gidin ve indirmek istediğiniz derslerin `.apkg` dosyalarını bilgisayarınıza veya telefonunuza indirin.
-2. **Anki'ye Aktarın:** `.apkg` formatındaki bir desteyi Anki'ye içe aktarmak, Anki'deki en kolay ve en sorunsuz aktarım işlemidir. Bu dosya türü kartları, çalışma geçmişinizi ve içindeki tüm medya (ses, resim) dosyalarını tek seferde yükler.
+## 🎯 Nedir?
 
-Kullandığınız cihaza göre aşağıdaki adımları sırasıyla uygulayabilirsiniz:
+**KamuSinyal KPSS Anki**, Türkiye'nin en kapsamlı kamu kariyer platformu olan [KamuSinyal](https://kamusinyal.qzz.io/) ekosisteminin eğitim materyalleri ayağıdır. KPSS adaylarına yönelik, sıfırdan özel hazırlanmış flash kartlarını içerir.
 
-### 💻 1. Masaüstü Bilgisayar (Windows / Mac / Linux)
-Bilgisayarda bu işlemi yapmanın en pratik yolu çift tıklamaktır.
+Kartlar sıradan ezberleme yöntemi yerine **bağlam odaklı** hazırlanmıştır: her soru, sınavda çıkabilecek mantık örüntülerine göre şekillendirilmiş; hoca notları ve hafıza kodlamalarıyla zenginleştirilmiştir.
 
-*   **1. Yöntem (En Kolay):**
-    İndirdiğiniz `.apkg` dosyasına bilgisayarınızda çift tıklayın. Anki otomatik olarak açılacak ve desteyi içeri aktaracaktır.
-*   **2. Yöntem (Program İçinden):**
-    1. Anki programını açın.
-    2. Sol üstteki **Dosya (File)** menüsüne tıklayın.
-    3. **İçe Aktar (Import)** seçeneğine tıklayın (Kısayol: `Ctrl + I`).
-    4. Açılan pencerede `.apkg` dosyanızı bulun, seçin ve **Aç (Open)** butonuna basın.
+---
 
-    > **Sonuç:** Ekranda *"X adet not eklendi"* şeklinde bir başarı raporu göreceksiniz. Desteniz ana ekrana eklenecektir.
+## ✨ Özellikler
 
-### 📱 2. Android Telefon (AnkiDroid)
-Android cihazlarda güvenli aktarım için uygulama içindeki menüyü kullanmak en sağlıklı yöntemdir.
+| Özellik | Açıklama |
+|---|---|
+| 📚 **5 Ana Ders** | Tarih, Türkçe, Matematik, Vatandaşlık, Coğrafya |
+| 🃏 **900+ Kart** | Sınavda çıkmış ve çıkması beklenen sorular |
+| 🎨 **Yalın Tasarım** | Anki'nin gündüz/gece modlarıyla tam uyumlu, göz yormayan arayüz |
+| ✏️ **Kolay İçerik Yönetimi** | Tüm kartlar düz `.txt` dosyalarından yönetilir, teknik bilgi gerekmez |
+| ⚙️ **Otomatik Derleme** | Her yeni versiyon GitHub Actions ile otomatik test edilip yayınlanır |
+| 🔍 **Kalite Kontrol (CI/CD)** | Yanlış format, eksik cevap veya tekrarlı sorular otomatik olarak tespit edilir |
+| 📦 **Anında Kurulum** | `.apkg` formatı; Windows, Mac, Linux, Android ve iOS ile tam uyumludur |
 
-1. [**AnkiDroid**](https://play.google.com/store/apps/details?id=com.ichi2.anki) uygulamasını açın.
-2. Sağ üst köşede bulunan **üç nokta (Menü)** simgesine dokunun.
-3. **Desteyi içe aktar (Import deck)** seçeneğini seçin.
-4. Telefonunuzun dosya yöneticisi açılacaktır. Buradan indirdiğiniz `.apkg` dosyasını bulun ve üzerine dokunun.
-5. Uygulama dosyayı işleyecek ve *"İçe aktarma başarılı"* uyarısı verecektir.
+---
 
-### 🍏 3. iPhone / iPad (AnkiMobile)
-iOS işletim sisteminde aktarım Apple'ın **"Paylaş"** menüsü üzerinden yapılır.
+## 📥 Kurulum & Kullanım
 
-1. Telefonunuzdaki **Dosyalar (Files)** uygulamasını açın ve `.apkg` dosyasını bulun.
-2. Dosyanın üzerine basılı tutun ve **Paylaş (Share)** seçeneğine dokunun.
-3. Uygulama listesinden [**AnkiMobile**](https://apps.apple.com/tr/app/ankimobile-flashcards/id373493387) uygulamasını seçin.
-4. Anki otomatik olarak açılacak ve desteyi koleksiyonunuza ekleyecektir.
+### 1. Desteleri İndirin
 
-## Proje Mimarisi
+**[→ En Son Sürümü İndir](https://github.com/fr0stb1rd/kamusinyal-kpss-anki/releases/latest)**
 
-Tüm kaynak kodları, ham metin verileri, derleme tarifleri ve yardımcı betikler tek bir düzenli yapı altında **`src/`** klasöründe birleştirilmiştir.
+Releases sayfasından istediğiniz derslere ait `.apkg` dosyalarını indirin.
+
+---
+
+### 💻 Masaüstü (Windows / Mac / Linux)
+
+İndirilen `.apkg` dosyasına **çift tıklayın.** Anki otomatik olarak açılır ve desteyi içe aktarır.
+
+Alternatif olarak: Anki → **Dosya** → **İçe Aktar** (`Ctrl + I`) → dosyayı seçin → **Aç**.
+
+> ✅ *"X adet not eklendi"* mesajı görüntülenirse kurulum tamamdır.
+
+---
+
+### 📱 Android (AnkiDroid)
+
+1. [AnkiDroid](https://play.google.com/store/apps/details?id=com.ichi2.anki) uygulamasını açın.
+2. Sağ üst köşedeki **⋮ Menü** → **Desteyi İçe Aktar** seçeneğine dokunun.
+3. Dosya yöneticisinden indirdiğiniz `.apkg` dosyasını bulun ve seçin.
+
+---
+
+### 🍏 iPhone / iPad (AnkiMobile)
+
+1. Telefonunuzdaki **Dosyalar** uygulamasında `.apkg` dosyasına uzun basın.
+2. **Paylaş** → [**AnkiMobile**](https://apps.apple.com/tr/app/ankimobile-flashcards/id373493387) seçeneğini seçin.
+3. Anki otomatik olarak açılır ve desteyi koleksiyonunuza ekler.
+
+---
+
+## 🗂️ Proje Mimarisi
 
 ```
 kamusinyal-kpss-anki/
-├── src/                    ← Tüm Proje Kaynakları
-│   ├── brain_brew_config.yaml ← Brain Brew ayar dosyası
-│   ├── raw_data/           ← Ham kaynak metin dosyaları (Tek düzenleme noktası!)
-│   │   └── cografya.txt
+│
+├── src/                          ← Tüm proje kaynakları
+│   ├── brain_brew_config.yaml    ← Brain Brew yapılandırması
 │   │
-│   ├── data/               ← Üretilmiş geçici CSV'ler (gitignored)
+│   ├── raw_data/                 ← Ham kaynak metin dosyaları (tek düzenleme noktası)
+│   │   ├── cografya.txt
+│   │   ├── tarih.txt
+│   │   └── ...
 │   │
-│   ├── headers/            ← Deste meta verileri (isim, UUID, kart ayarları)
+│   ├── data/                     ← Üretilmiş geçici CSV dosyaları (gitignored)
+│   │
+│   ├── headers/                  ← Deste meta verileri (isim, UUID, açıklama)
 │   │   ├── kpss_default.yaml
 │   │   └── kpss_desc.html
 │   │
-│   ├── note_models/        ← Kart tasarımı (CSS + HTML şablonu)
+│   ├── note_models/              ← Kart görünümü (CSS + HTML şablonu)
 │   │   ├── kpss.css
 │   │   ├── kpss.yaml
 │   │   └── templates/
 │   │       └── kpss_template.html
 │   │
-│   ├── recipes/            ← Brain Brew tarifleri (Dinamik üretilir)
+│   ├── recipes/                  ← Brain Brew tarifleri (dinamik üretilir)
 │   │   └── kpss.yaml
 │   │
-│   └── scripts/            ← Otomasyon ve Yardımcı Betikler
-│       ├── txt_to_csv.py   ← raw_data/*.txt → src/data/*.csv ve kpss.yaml üretimi
-│       ├── crowdanki_to_apkg.py ← build/*/deck.json → build/*.apkg
-│       ├── soru_tespit.py  ← Hatalı / çoklu soru işareti kontrolü (CI/CD test adımı)
-│       └── soru_duzelt.py  ← Hatalı soru işaretlerini otomatik düzeltme
+│   └── scripts/                  ← Otomasyon betikleri
+│       ├── txt_to_csv.py         ← raw_data/*.txt → CSV + recipe üretimi
+│       ├── crowdanki_to_apkg.py  ← CrowdAnki JSON → .apkg dönüşümü
+│       ├── soru_tespit.py        ← Kalite kontrol (CI/CD test adımı)
+│       └── soru_duzelt.py        ← Hatalı soru işaretlerini otomatik düzeltme
 │
-├── build/                  ← Üretilen CrowdAnki desteleri ve .apkg dosyaları (gitignored)
+├── build/                        ← Üretilen .apkg dosyaları (gitignored)
 │   ├── KamuSinyal 2026 KPSS Coğrafya.apkg
 │   └── ...
 │
 ├── .github/workflows/
-│   └── release.yml         ← Otomatik kalite testi, derleme ve GitHub Release
+│   └── release.yml               ← Otomatik test, derleme ve GitHub Release
 │
-├── anki-manual-main/       ← Sadece yerelde saklanan referans dokümanları (gitignored)
 └── README.md
 ```
 
 ---
 
-## Build Pipeline (Derleme Akışı)
+## ⚙️ Build Pipeline
 
-Her tag push yapıldığında veya yerelde derleme alındığında akış şu şekilde işler:
+Her `tag` push yapıldığında GitHub Actions aşağıdaki adımları sırasıyla çalıştırır:
 
-```
-src/raw_data/*.txt
-    │  src/scripts/soru_tespit.py (Kalite Kontrolü - Birden fazla '?' varsa DURDURUR)
-    ▼
-src/raw_data/*.txt  →  src/data/*.csv (txt_to_csv.py ile dinamik derleme)
-    │  brain-brew run src/recipes/kpss.yaml
-    ▼
-build/*/deck.json (CrowdAnki Formatı)
-    │  src/scripts/crowdanki_to_apkg.py
-    ▼
-build/*.apkg  →  GitHub Release / Anki Import'a Hazır!
+```mermaid
+flowchart LR
+    A["📄 raw_data/*.txt"] --> B["🔍 soru_tespit.py\nKalite Kontrol"]
+    B -- "✅ Temiz" --> C["🔄 txt_to_csv.py\nCSV + Recipe Üretimi"]
+    B -- "❌ Hata" --> X["🚫 Pipeline Durdu"]
+    C --> D["🧠 brain-brew run\nCrowdAnki JSON Üretimi"]
+    D --> E["📦 crowdanki_to_apkg.py\n.apkg Dönüşümü"]
+    E --> F["🚀 GitHub Release\n.apkg Yayını"]
 ```
 
 ---
 
-## Yeni Soru Ekleme
+## ✏️ Yeni Soru Ekleme
 
-Tek yapılması gereken ilgili **`src/raw_data/*.txt`** dosyasını düzenlemektir.
+Yeni kart eklemek için tek yapılması gereken, ilgili **`src/raw_data/*.txt`** dosyasını düzenlemektir.
 
-**Format:**
+### Format
+
 ```
 Soru metni buraya yazılır? Cevap metni buraya yazılır. (Opsiyonel hoca notu)
 ```
 
-**Kural:** Satırdaki **ilk `?` işareti** soruyu cevaptan ayırır. Bir satırda birden fazla `?` işareti olamaz (olursa CI/CD aşamasında testler başarısız olur ve derleme durur).
+### Kural
+
+Satırdaki **ilk `?` işareti** soruyu cevaptan ayırır.
+
+```
+✅ Doğru:  Türkiye'nin başkenti hangisidir? Ankara
+❌ Yanlış: Türkiye'nin başkenti hangisi? Ankara mı İstanbul mu?
+```
 
 ---
 
-## Yerel Derleme Alma
+## 🔍 Kalite Kontrol (QA)
+
+Her derleme öncesinde `soru_tespit.py` otomatik olarak çalışır ve aşağıdaki sorunları tespit edip **pipeline'ı durdurur:**
+
+| Hata Tipi | Açıklama |
+|---|---|
+| ❌ **Soru işareti YOK** | Satırda hiç `?` bulunmayan başlık / açıklama satırları |
+| ❌ **Çoklu `?` işareti** | Birden fazla soru işareti içeren, yanlış bölünecek satırlar |
+| ❌ **Soru veya Cevap BOŞ** | `?` var ama soru/cevap kısmı boş kalmış satırlar |
+| ❌ **Tekrarlı Soru** | Aynı soru metniyle birden fazla kez girilmiş satırlar |
+
+Testi manuel olarak çalıştırmak için:
+
+```bash
+python3 src/scripts/soru_tespit.py
+```
+
+---
+
+## 🛠️ Yerel Derleme
 
 İlk kurulumda bağımlılıkları yükleyin:
+
 ```bash
 python3 -m venv venv
 ./venv/bin/pip install brain-brew genanki
 ```
 
-Ardından tüm adımları tek komutla çalıştırın:
+Tüm adımları tek komutla çalıştırın:
+
 ```bash
-python3 src/scripts/soru_tespit.py && python3 src/scripts/txt_to_csv.py && ./venv/bin/brain-brew run src/recipes/kpss.yaml && python3 src/scripts/crowdanki_to_apkg.py
+python3 src/scripts/soru_tespit.py && \
+python3 src/scripts/txt_to_csv.py && \
+./venv/bin/brain-brew run src/recipes/kpss.yaml && \
+python3 src/scripts/crowdanki_to_apkg.py
 ```
 
-Derlenen `.apkg` dosyalarınız saniyeler içinde **`build/`** klasöründe hazır olacaktır!
+Derlenen `.apkg` dosyaları saniyeler içinde **`build/`** klasöründe hazır olacaktır.
 
-## Lisans
-Bu proje, [MIT](https://github.com/fr0stb1rd/kamusinyal-kpss-anki/blob/main/LICENSE) lisansı altında dağıtılmaktadır.
+---
+
+## 📄 Lisans
+
+Bu proje [MIT](https://github.com/fr0stb1rd/kamusinyal-kpss-anki/blob/main/LICENSE) lisansı altında dağıtılmaktadır.
+
+---
+
+<p align="center">
+  Bir <b><a href="https://kamusinyal.qzz.io">KamuSinyal</a></b> projesidir.
+</p>
