@@ -7,6 +7,43 @@ Bu depo, **KamuSinyal** ekosisteminin bir parçası olarak geliştirilen, KPSS (
 - **Yalın Tasarım**: Anki'nin yerel gece ve gündüz modlarıyla tam uyumlu, göz yormayan minimalist tasarım.
 - **Kolay Yönetim**: Kartlar tamamen `.txt` dosyaları üzerinden yönetilir; teknik bilgi gerektirmeden soru eklenebilir.
 
+## Nasıl Kullanılır?
+
+1. **Desteleri İndirin:** [KamuSinyal KPSS Anki En Son Sürüm (Releases)](https://github.com/fr0stb1rd/kamusinyal-kpss-anki/releases/latest) sayfasına gidin ve indirmek istediğiniz derslerin `.apkg` dosyalarını bilgisayarınıza veya telefonunuza indirin.
+2. **Anki'ye Aktarın:** `.apkg` formatındaki bir desteyi Anki'ye içe aktarmak, Anki'deki en kolay ve en sorunsuz aktarım işlemidir. Bu dosya türü kartları, çalışma geçmişinizi ve içindeki tüm medya (ses, resim) dosyalarını tek seferde yükler.
+
+Kullandığınız cihaza göre aşağıdaki adımları sırasıyla uygulayabilirsiniz:
+
+### 💻 1. Masaüstü Bilgisayar (Windows / Mac / Linux)
+Bilgisayarda bu işlemi yapmanın en pratik yolu çift tıklamaktır.
+
+*   **1. Yöntem (En Kolay):**
+    İndirdiğiniz `.apkg` dosyasına bilgisayarınızda çift tıklayın. Anki otomatik olarak açılacak ve desteyi içeri aktaracaktır.
+*   **2. Yöntem (Program İçinden):**
+    1. Anki programını açın.
+    2. Sol üstteki **Dosya (File)** menüsüne tıklayın.
+    3. **İçe Aktar (Import)** seçeneğine tıklayın (Kısayol: `Ctrl + I`).
+    4. Açılan pencerede `.apkg` dosyanızı bulun, seçin ve **Aç (Open)** butonuna basın.
+
+    > **Sonuç:** Ekranda *"X adet not eklendi"* şeklinde bir başarı raporu göreceksiniz. Desteniz ana ekrana eklenecektir.
+
+### 📱 2. Android Telefon (AnkiDroid)
+Android cihazlarda güvenli aktarım için uygulama içindeki menüyü kullanmak en sağlıklı yöntemdir.
+
+1. [**AnkiDroid**](https://play.google.com/store/apps/details?id=com.ichi2.anki) uygulamasını açın.
+2. Sağ üst köşede bulunan **üç nokta (Menü)** simgesine dokunun.
+3. **Desteyi içe aktar (Import deck)** seçeneğini seçin.
+4. Telefonunuzun dosya yöneticisi açılacaktır. Buradan indirdiğiniz `.apkg` dosyasını bulun ve üzerine dokunun.
+5. Uygulama dosyayı işleyecek ve *"İçe aktarma başarılı"* uyarısı verecektir.
+
+### 🍏 3. iPhone / iPad (AnkiMobile)
+iOS işletim sisteminde aktarım Apple'ın **"Paylaş"** menüsü üzerinden yapılır.
+
+1. Telefonunuzdaki **Dosyalar (Files)** uygulamasını açın ve `.apkg` dosyasını bulun.
+2. Dosyanın üzerine basılı tutun ve **Paylaş (Share)** seçeneğine dokunun.
+3. Uygulama listesinden [**AnkiMobile**](https://apps.apple.com/tr/app/ankimobile-flashcards/id373493387) uygulamasını seçin.
+4. Anki otomatik olarak açılacak ve desteyi koleksiyonunuza ekleyecektir.
+
 ## Proje Mimarisi
 
 Tüm kaynak kodları, ham metin verileri, derleme tarifleri ve yardımcı betikler tek bir düzenli yapı altında **`src/`** klasöründe birleştirilmiştir.
@@ -98,3 +135,6 @@ python3 src/scripts/soru_tespit.py && python3 src/scripts/txt_to_csv.py && ./ven
 ```
 
 Derlenen `.apkg` dosyalarınız saniyeler içinde **`build/`** klasöründe hazır olacaktır!
+
+## Lisans
+Bu proje, [MIT](https://github.com/fr0stb1rd/kamusinyal-kpss-anki/blob/main/LICENSE) lisansı altında dağıtılmaktadır.
