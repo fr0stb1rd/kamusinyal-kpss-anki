@@ -1,4 +1,4 @@
-<h1 align="center">KamuSinyal KPSS Anki</h1>
+<h1 align="center">KamuSinyal KPSS Anki 2026</h1>
 
 <p align="center">
   <strong>Akıllı Kart Destesiyle KPSS'ye Hazırlan</strong><br>
