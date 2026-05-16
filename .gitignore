@@ -1,0 +1,15 @@
+archiver/
+build/
+vendor/
+src/note_models/templates/generated/
+src/data/
+anki-manual-main/
+
+.DS_Store
+Thumbs.db
+~$*
+.idea
+venv/
+__pycache__/
+*.pyc
+brain-brew-master/

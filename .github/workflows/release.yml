@@ -1,0 +1,48 @@
+name: Build and Release Anki Decks
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install brain-brew genanki
+
+      # Test Adımı: src/raw_data/*.txt Kalite Kontrolü
+      - name: Run QA Tests (Check multiple '?')
+        run: python src/scripts/soru_tespit.py
+
+      # Adım 1: src/raw_data/*.txt → src/data/*.csv
+      - name: Convert raw_data to CSV
+        run: python src/scripts/txt_to_csv.py
+
+      # Adım 2: src/data/*.csv → build/*/deck.json (CrowdAnki formatı)
+      - name: Build Decks with Brain Brew
+        run: brain-brew run src/recipes/kpss.yaml
+
+      # Adım 3: build/*/deck.json → build/*.apkg
+      - name: Convert to .apkg
+        run: python src/scripts/crowdanki_to_apkg.py
+
+      # Adım 4: .apkg dosyalarını GitHub Release'e ekle
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/*.apkg
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

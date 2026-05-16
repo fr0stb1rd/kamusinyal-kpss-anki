@@ -1,0 +1,33 @@
+name: "KamuSinyal 2026 KPSS"
+crowdanki_uuid: kpss-master-fresh-v2
+deck_config_uuid: kpss-config-fresh-v2
+deck_description_html_file: src/headers/kpss_desc.html
+deck_configurations:
+  - name: Default
+    crowdanki_uuid: kpss-config-fresh-v2
+    new:
+      delays: [1, 10]
+      ints: [1, 4, 7]
+      initialFactor: 2500
+      separate: true
+      order: 1
+      perDay: 20
+      bury: false
+    rev:
+      perDay: 200
+      fuzz: 0.05
+      ivlFct: 1
+      maxIvl: 36500
+      hardFactor: 1.2
+      bury: false
+      minSpace: 1
+    lapse:
+      delays: [10]
+      mult: 0
+      minInt: 1
+      leechCt: 8
+      leechAction: 0
+    maxTaken: 60
+    timer: 0
+    autoplay: true
+    replayq: true
