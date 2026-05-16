@@ -51,9 +51,19 @@ def scan_file(file_path: str) -> int:
             continue
 
         q_count = line.count('?')
-        if q_count > 1:
+        if q_count == 0:
+            count += 1
+            print(f"📍 Satır {line_no:<4} | (Soru işareti YOK) ➔ {line}")
+        elif q_count > 1:
             count += 1
             print(f"📍 Satır {line_no:<4} | ({q_count} adet '?') ➔ {line}")
+        else:
+            idx = line.find('?')
+            question = line[:idx+1].strip()
+            answer = line[idx+1:].strip()
+            if len(question) <= 1 or not answer: # question is just '?'
+                count += 1
+                print(f"📍 Satır {line_no:<4} | (Soru veya Cevap BOŞ) ➔ {line}")
 
     if count == 0:
         print("   ✅ Bu dosya tamamen temiz.")
@@ -90,7 +100,7 @@ def main():
     print(f"   • Sorunlu Satır Sayısı: {total_malformed}")
 
     if total_malformed > 0:
-        print("\n❌ HATA: Çoklu soru işareti içeren satırlar tespit edildi!")
+        print("\n❌ HATA: Hatalı formatlı (eksik/fazla soru işareti veya boş cevaplı) satırlar tespit edildi!")
         print("💡 Lütfen yukarıdaki satırları 'scripts/soru_duzelt.py' ile veya elinizle düzeltin.")
         sys.exit(1)
     else:
