@@ -45,6 +45,7 @@ def scan_file(file_path: str) -> int:
         print(f"❌ Hata: Dosya kodlaması çözümlenemedi: {file_path}")
         return 0
 
+    seen_questions = set()
     for line_no, raw_line in enumerate(lines, 1):
         line = raw_line.strip()
         if not line:
@@ -64,6 +65,11 @@ def scan_file(file_path: str) -> int:
             if len(question) <= 1 or not answer: # question is just '?'
                 count += 1
                 print(f"📍 Satır {line_no:<4} | (Soru veya Cevap BOŞ) ➔ {line}")
+            elif question.lower() in seen_questions:
+                count += 1
+                print(f"📍 Satır {line_no:<4} | (TEKRAR EDEN SORU) ➔ {line}")
+            else:
+                seen_questions.add(question.lower())
 
     if count == 0:
         print("   ✅ Bu dosya tamamen temiz.")
@@ -100,7 +106,7 @@ def main():
     print(f"   • Sorunlu Satır Sayısı: {total_malformed}")
 
     if total_malformed > 0:
-        print("\n❌ HATA: Hatalı formatlı (eksik/fazla soru işareti veya boş cevaplı) satırlar tespit edildi!")
+        print("\n❌ HATA: Hatalı formatlı (eksik/fazla soru işareti, boş cevap veya tekrarlı soru) satırlar tespit edildi!")
         print("💡 Lütfen yukarıdaki satırları 'scripts/soru_duzelt.py' ile veya elinizle düzeltin.")
         sys.exit(1)
     else:
