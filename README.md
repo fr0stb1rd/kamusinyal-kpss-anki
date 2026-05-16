@@ -33,6 +33,7 @@ Kartlar sıradan ezberleme yöntemi yerine **bağlam odaklı** hazırlanmıştı
 | 📚 **5 Ana Ders** | Tarih, Türkçe, Matematik, Vatandaşlık, Coğrafya |
 | 🃏 **900+ Kart** | Sınavda çıkmış ve çıkması beklenen sorular |
 | 🎨 **Yalın Tasarım** | Anki'nin gündüz/gece modlarıyla tam uyumlu, göz yormayan arayüz |
+| ✍️ **İnsan Yapımı** | Tüm soru ve cevaplar insan tarafından hazırlandı. Sadece biçimlendirme için yapay zeka kullanıldı. |
 | ✏️ **Kolay İçerik Yönetimi** | Tüm kartlar düz `.txt` dosyalarından yönetilir, teknik bilgi gerekmez |
 | ⚙️ **Otomatik Derleme** | Her yeni versiyon GitHub Actions ile otomatik test edilip yayınlanır |
 | 🔍 **Kalite Kontrol (CI/CD)** | Yanlış format, eksik cevap veya tekrarlı sorular otomatik olarak tespit edilir |
